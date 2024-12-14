@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>  
+
+int main() {
+    char keyPressed;
+    int distance = 0;
+    int targetPosition = 30;  
+    int score = 0;
+
+    
+    printf("_/﹋\\_\n(҂`_´)\n<,   ,> \n_/﹋\\_\n\nBaşlamak için bir tuşa basın:");
+
+ 
+    keyPressed = getchar();  
+    getchar();               
+
+
+    #ifdef _WIN32
+        system("cls"); 
+    #else
+        system("clear");  
+    #endif
+
+  
+    while (1) {
+       
+        for (distance = 0; distance <= targetPosition; distance++) {
+           
+            #ifdef _WIN32
+                system("cls");  
+            #else
+                system("clear");  
+            #endif
+
+           
+            printf("_/﹋\\_\n(҂`_´)\n<,︻╦╤─ ");  
+
+           
+            for (int i = 0; i < distance; i++) {
+                printf(" ");  
+            }
+
+          
+            if (distance == targetPosition) {
+                printf("%c 🞖  (Hit!)\n", keyPressed);  
+                score += 10; 
+            } else {
+                printf("%c\n", keyPressed);  
+            }
+
+           
+            for (int i = 0; i < targetPosition; i++) {  
+                printf(" ");
+            }
+            printf("🞖\n");  
+
+            usleep(100000); 
+        }
+
+        
+        printf("\nPuan: %d\n", score);
+        printf("Tekrar ateş etmek için bir tuşa basın (Çıkmak için 'q'): ");
+
+       
+        keyPressed = getchar();
+        getchar();  
+
+       
+        if (keyPressed == 'q') {
+            printf("\nÇıkış yapılıyor...\n");
+            break;
+        }
+    }
+
+   
+    printf("Son Puanınız: %d\n", score);
+    return 0;
+}
