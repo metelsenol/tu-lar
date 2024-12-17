@@ -5,16 +5,13 @@
 int main() {
     char keyPressed;
     int distance = 0;
-    int targetPosition = 30;  
+    int targetPosition = 30;  // İlk hedefin pozisyonu
     int score = 0;
 
-    
     printf("_/﹋\\_\n(҂`_´)\n<,   ,> \n_/﹋\\_\n\nBaşlamak için bir tuşa basın:");
 
- 
     keyPressed = getchar();  
     getchar();               
-
 
     #ifdef _WIN32
         system("cls"); 
@@ -22,58 +19,54 @@ int main() {
         system("clear");  
     #endif
 
-  
     while (1) {
-       
+        // Hedefi ve oyuncuyu ekranda göster
         for (distance = 0; distance <= targetPosition; distance++) {
-           
+
             #ifdef _WIN32
                 system("cls");  
             #else
                 system("clear");  
             #endif
 
-           
             printf("_/﹋\\_\n(҂`_´)\n<,︻╦╤─ ");  
 
-           
+            // Ateş etme animasyonu
             for (int i = 0; i < distance; i++) {
                 printf(" ");  
             }
 
-          
+            // Ateş edilmeyen hedef görünür
+            if (distance < targetPosition) {
+                printf("%c\n", keyPressed);  
+            }
+            // Hedef vurulmuşsa değiştir
             if (distance == targetPosition) {
                 printf("%c 🞖  (Hit!)\n", keyPressed);  
                 score += 10; 
-            } else {
-                printf("%c\n", keyPressed);  
             }
 
-           
-            for (int i = 0; i < targetPosition; i++) {  
-                printf(" ");
-            }
-            printf("🞖\n");  
+            // Diğer hedefin görünümünü temizle
+            printf("\n");
 
             usleep(100000); 
         }
 
-        
+        // Puanı yazdır
         printf("\nPuan: %d\n", score);
         printf("Tekrar ateş etmek için bir tuşa basın (Çıkmak için 'q'): ");
 
-       
         keyPressed = getchar();
         getchar();  
 
-       
+        // Eğer 'q' tuşuna basılırsa çık
         if (keyPressed == 'q') {
             printf("\nÇıkış yapılıyor...\n");
             break;
         }
     }
 
-   
+    // Oyun bittiğinde final puanı
     printf("Son Puanınız: %d\n", score);
     return 0;
 }
