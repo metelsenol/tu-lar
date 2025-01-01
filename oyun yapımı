@@ -8,7 +8,7 @@ int main() {
     int targetPosition = 30;  // İlk hedefin pozisyonu
     int score = 0;
 
-    printf("_/﹋\\_\n(҂`_´)\n<,   ,> \n_/﹋\\_\n\nBaşlamak için bir tuşa basın:");
+    printf("_/﹋\\_\n(҂_´)\n<,   ,>                                 🞖\n_/﹋\\_\n\nBaşlamak için bir tuşa basın:");
 
     keyPressed = getchar();  
     getchar();               
@@ -20,7 +20,8 @@ int main() {
     #endif
 
     while (1) {
-        // Hedefi ve oyuncuyu ekranda göster
+
+        // Sabit hedefin olduğu konumu her zaman ekrana çiz
         for (distance = 0; distance <= targetPosition; distance++) {
 
             #ifdef _WIN32
@@ -29,30 +30,31 @@ int main() {
                 system("clear");  
             #endif
 
-            printf("_/﹋\\_\n(҂`_´)\n<,︻╦╤─ ");  
+            // Hedefin ve silahın ASCII art'ını çiz
+            printf("_/﹋\\_\n(҂_´)\n<,︻╦╤─ ");  
 
-            // Ateş etme animasyonu
+            // Ateş etme animasyonu (mermi hareketi)
             for (int i = 0; i < distance; i++) {
                 printf(" ");  
             }
 
-            // Ateş edilmeyen hedef görünür
-            if (distance < targetPosition) {
-                printf("%c\n", keyPressed);  
-            }
-            // Hedef vurulmuşsa değiştir
-            if (distance == targetPosition) {
-                printf("%c 🞖  (Hit!)\n", keyPressed);  
-                score += 10; 
-            }
+            // Ateş edilen mermi göster
+            printf("%c", keyPressed);  
 
-            // Diğer hedefin görünümünü temizle
-            printf("\n");
+            // Hedef sembolünü her zaman aynı yerde göster
+            for (int i = distance; i < targetPosition; i++) {
+                printf(" ");  // Mermiden sonra boşluk bırak
+            }
+            printf(" 🞖\n");  // Hedef sembolü her zaman görünür ve sabit yerinde
 
+            // Puan her zaman ekranda görünsün
             usleep(100000); 
         }
 
-        // Puanı yazdır
+        // Hedefi vurduğunda puanı arttır
+        score += 10;
+
+        // Tekrar ateş etmek için bir tuşa basın mesajını ve güncellenmiş puanı aynı anda göster
         printf("\nPuan: %d\n", score);
         printf("Tekrar ateş etmek için bir tuşa basın (Çıkmak için 'q'): ");
 
