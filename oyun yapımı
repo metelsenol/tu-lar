@@ -8,6 +8,30 @@ int main() {
     int targetPosition = 30;  // İlk hedefin pozisyonu
     int score = 0;
 
+    printf("       𝗠𝗘𝗧𝗘 𝗟𝗨𝗞𝗘 𝗦𝗨𝗡𝗔𝗥\n"); 
+    printf("\n(Devam etmek için bir tuşa basın)\n");   
+    getchar();   
+
+    // Clear the console 
+    #ifdef _WIN32 
+        system("cls"); // For Windows 
+    #else 
+        system("clear"); // For Unix-like systems 
+    #endif 
+
+    printf("✩░▒▓▆▅▃▂▁𝐓𝐔Ş𝐋𝐀𝐑▁▂▃▅▆▓▒░✩");
+    printf("\n\n(Devam etmek için bir tuşa basın)\n");
+
+    getchar();
+
+    // Clear the console 
+    #ifdef _WIN32 
+        system("cls"); // For Windows 
+    #else 
+        system("clear"); // For Unix-like systems 
+    #endif 
+   
+
     printf("_/﹋\\_\n(҂_´)\n<,   ,>                                 🞖\n_/﹋\\_\n\nBaşlamak için bir tuşa basın:");
 
     keyPressed = getchar();  
