@@ -9,7 +9,7 @@ int main() {
     int score = 0;
 
     printf("       𝗠𝗘𝗧𝗘 𝗟𝗨𝗞𝗘 𝗦𝗨𝗡𝗔𝗥\n"); 
-    printf("\n(Devam etmek için bir tuşa basın)\n");   
+    printf("\n(Devam etmek için Enter'a basın)\n");   
     getchar();   
 
     // Clear the console 
@@ -20,7 +20,7 @@ int main() {
     #endif 
 
     printf("✩░▒▓▆▅▃▂▁𝐓𝐔Ş𝐋𝐀𝐑▁▂▃▅▆▓▒░✩");
-    printf("\n\n(Devam etmek için bir tuşa basın)\n");
+    printf("\n\n(Devam etmek için Enter'a basın)\n");
 
     getchar();
 
@@ -32,7 +32,7 @@ int main() {
     #endif 
    
 
-    printf("_/﹋\\_\n(҂_´)\n<,   ,>                                 🞖\n_/﹋\\_\n\nBaşlamak için bir tuşa basın:");
+    printf("_/﹋\\_\n(҂_´)\n<,   ,>                                 🞖\n_/﹋\\_\n\nBaşlamak için bir tuşa basın:\n\n(Bastığınız tuş sizin merminizi belirler)");
 
     keyPressed = getchar();  
     getchar();               
